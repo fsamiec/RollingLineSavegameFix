@@ -7,20 +7,27 @@
         <vm:MainViewModel />
     </UserControl.DataContext>
     <StackPanel Orientation="Vertical">
-        <StackPanel Orientation="Horizontal">
-            <TextBox MinWidth="300" Text="{Binding FileName}"/>
-            <Button Content="Open File" Click="OpenFileBrowser_Click" />
-        </StackPanel>
-        
-            <GroupBox Header="Waggons"  IsEnabled="{Binding AreOptionsAvaiable}">
-                <StackPanel Orientation="Vertical" >
-                    <RadioButton Content="Remove Faulty Waggons" />
-                    <RadioButton Content="Remove All Waggons" />
-                </StackPanel>
-            </GroupBox>
-        <GroupBox Header="Breaks" IsEnabled="{Binding AreOptionsAvaiable}">
-            <CheckBox Content="Remove Breaks"/>
+        <GroupBox Header="File">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Text="{Binding FileName}"/>
+                <Button Grid.Column="2" Content="Open File" Click="OpenFileBrowser_Click" />
+            </Grid>
         </GroupBox>
-        <Button Content="DO IT NOW!!!" IsEnabled="{Binding AreOptionsAvaiable}"/>
+        <GroupBox Header="Waggons" IsEnabled="{Binding AreOptionsAvaiable}">
+            <StackPanel Orientation="Vertical" >
+                <RadioButton Content="None" IsChecked="{Binding ShouldNotRemoveWaggons}"/>
+                <RadioButton Content="Remove Faulty Waggons" IsChecked="{Binding ShouldRemoveFaultyWaggons}"/>
+                <RadioButton Content="Remove All Waggons" IsChecked="{Binding ShouldRemoveAllWaggons}"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Breaks" IsEnabled="{Binding AreOptionsAvaiable}">
+            <CheckBox Content="Remove Breaks" IsChecked="{Binding ShouldRemoveBreaks}"/>
+        </GroupBox>
+        <Button Content="DO IT NOW!!!" IsEnabled="{Binding AreOptionsAvaiable}" Command="{Binding DoItNowCommand}"/>
     </StackPanel>
 </UserControl>

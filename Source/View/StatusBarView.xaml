@@ -20,7 +20,7 @@
             <Label>nfl</Label>
         </StatusBarItem>
         <StatusBarItem Grid.Column="2" HorizontalContentAlignment="Right">
-            <Button> Mute </Button>
+            <!--<Button> Mute </Button>-->
         </StatusBarItem>
     </StatusBar>
 </UserControl>

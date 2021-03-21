@@ -4,19 +4,8 @@ using SharpMik;
 using SharpMik.Drivers;
 using SharpMik.Player;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RollingLineSavegameFix.View
 {
@@ -32,8 +21,7 @@ namespace RollingLineSavegameFix.View
         public MainView()
         {
             InitializeComponent();            
-            InitializeBackgroundMusic();
-            DataContext = new MainViewModel();
+            InitializeBackgroundMusic();            
         }
 
         /// <summary>
@@ -41,7 +29,6 @@ namespace RollingLineSavegameFix.View
         /// </summary>
         private void InitializeBackgroundMusic()
         {
-
             m_Player = new MikMod();
             ModDriver.Mode = (ushort)(ModDriver.Mode | SharpMikCommon.DMODE_NOISEREDUCTION);            
             m_Player.Init<NaudioDriver>("");
@@ -49,7 +36,10 @@ namespace RollingLineSavegameFix.View
             //TODO: Modify to stream
             m_Mod = ModuleLoader.Load("Resources\\music.xm");
 
-            //m_Player.Play(m_Mod);
+#if !DEBUG
+            m_Player.Play(m_Mod);
+#endif
+
         }
 
         /// <summary>
@@ -57,9 +47,12 @@ namespace RollingLineSavegameFix.View
         /// </summary>        
         private void OpenFileBrowser_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = false;            
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var openFileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+
             if (openFileDialog.ShowDialog() == true)
             {
                 ((MainViewModel)DataContext).FileName = openFileDialog.FileName;
