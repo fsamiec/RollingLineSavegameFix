@@ -8,6 +8,9 @@
         Height="480">
     <DockPanel >
         <view:StatusBarView DockPanel.Dock="Bottom"/>
-        <view:MainView />
+        <StackPanel Orientation="Vertical">
+            <view:BannerView />
+            <view:MainView />
+        </StackPanel>
     </DockPanel>
 </Window>

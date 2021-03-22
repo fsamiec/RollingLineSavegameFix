@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\banner.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="RegexMatcher" Version="1.0.7" />
   </ItemGroup>
 
@@ -17,6 +21,10 @@
     <Reference Include="SharpMikNAudio">
       <HintPath>..\Libraries\SharpMikNAudio.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\banner.png" />
   </ItemGroup>
 
   <ItemGroup>

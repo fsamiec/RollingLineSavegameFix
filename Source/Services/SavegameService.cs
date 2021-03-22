@@ -51,10 +51,7 @@ namespace RollingLineSavegameFix.Services
                 _removeWaggonsService.RemoveAllWaggons();
             }
 
-            File.WriteAllText(_model.FileName+"_", _model.FileContent);
-
-            Console.WriteLine("Fertsch");
-        }
-              
+            File.WriteAllText(_model.FileName+"_", _model.FileContent);         
+        }              
     }
 }

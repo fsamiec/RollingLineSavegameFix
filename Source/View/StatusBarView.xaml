@@ -17,7 +17,7 @@
             <Label>... by caspa | m0ne</Label>
         </StatusBarItem>
         <StatusBarItem Grid.Column="1" HorizontalContentAlignment="Center">
-            <Label>nfl</Label>
+            <Label>NGR</Label>
         </StatusBarItem>
         <StatusBarItem Grid.Column="2" HorizontalContentAlignment="Right">
             <!--<Button> Mute </Button>-->
