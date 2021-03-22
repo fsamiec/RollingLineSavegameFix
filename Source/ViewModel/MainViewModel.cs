@@ -9,6 +9,8 @@ namespace RollingLineSavegameFix.ViewModel
     {
         private ISavegameService _savegameService;
         private IBackupService _backupService;
+        private IReformatService _reformatService;
+        private IRemoveWaggonsService _removeWaggonsService;
         private MainModel _model;
 
         public MainViewModel()
@@ -21,7 +23,10 @@ namespace RollingLineSavegameFix.ViewModel
         private void InitializeServices()
         {
             _backupService = new BackupService(_model);
-            _savegameService = new SavegameService(_model, _backupService);
+            _reformatService = new ReformatService(_model);
+            _removeWaggonsService = new RemoveWaggonsService(_model);
+            _savegameService = new SavegameService(_model, _backupService, _reformatService, _removeWaggonsService);
+            
         }
 
         public string FileName

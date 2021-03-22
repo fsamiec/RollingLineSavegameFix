@@ -1,4 +1,5 @@
 ﻿using RollingLineSavegameFix.Model;
+using System;
 using System.IO;
 using System.Windows;
 
@@ -8,11 +9,19 @@ namespace RollingLineSavegameFix.Services
     {
         private readonly MainModel _model;
         private readonly IBackupService _backupService;
+        private readonly IReformatService _reformatService;
+        private readonly IRemoveWaggonsService _removeWaggonsService;
 
-        public SavegameService(MainModel model, IBackupService backupService)
+        public SavegameService(
+            MainModel model, 
+            IBackupService backupService,
+            IReformatService reformatService,
+            IRemoveWaggonsService removeWaggonsService)
         {
             _model = model;
             _backupService = backupService;
+            _reformatService = reformatService;
+            _removeWaggonsService = removeWaggonsService;
         }
 
         public string LoadSavegame()
@@ -35,10 +44,17 @@ namespace RollingLineSavegameFix.Services
         public void WriteNewSaveGame()
         {
             _backupService.WriteBackupFile();
-            var content = _model.FileContent;
-            MessageBox.Show("Palim Palim " + content);            
-        }
+            _reformatService.Reformat();
 
-       
+            if (_model.ShouldRemoveAllWaggons)
+            {
+                _removeWaggonsService.RemoveAllWaggons();
+            }
+
+            File.WriteAllText(_model.FileName+"_", _model.FileContent);
+
+            Console.WriteLine("Fertsch");
+        }
+              
     }
 }
