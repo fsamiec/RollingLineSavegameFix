@@ -30,19 +30,9 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
   
-       # Create the release:  https://github.com/actions/create-release
-    - name: Create release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    - uses: actions/upload-artifact@v2
       with:
-        tag_name: ${{ github.ref}}
-        release_name:  ${{ github.ref }}
-        draft: false
-        prerelease: true
-    - name: Archive Release (Source)
-      uses: thedoctor0/zip-release@master
-      with:
+        name: my-artifact
+        path: bin/release/ # or path/to/artifact
         filename: 'release.zip'
         exclusions: '*.git* *.github* .editorconfig'
