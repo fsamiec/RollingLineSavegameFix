@@ -16,7 +16,7 @@ namespace RollingLineSavegameFix.Services
         {
             var content = _model.FileContent;
             content = content.Replace(Environment.NewLine, "");
-            content = content.Replace("Quickmod", $"{Environment.NewLine}Quickmod");
+            content = content.Replace("QuickMod", $"{Environment.NewLine}QuickMod", StringComparison.OrdinalIgnoreCase);
             _model.FileContent = content;
         }
     }

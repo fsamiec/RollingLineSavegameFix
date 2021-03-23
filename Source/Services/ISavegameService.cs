@@ -1,6 +1,4 @@
-﻿using RegexMatcher;
-
-namespace RollingLineSavegameFix.Services
+﻿namespace RollingLineSavegameFix.Services
 {
     /// <summary>
     /// Service to manipulate Savegames

@@ -25,9 +25,11 @@
                 <RadioButton Content="Remove All Waggons" IsChecked="{Binding ShouldRemoveAllWaggons}"/>
             </StackPanel>
         </GroupBox>
+        <!--
         <GroupBox Header="Breaks" IsEnabled="{Binding AreOptionsAvaiable}">
             <CheckBox Content="Remove Breaks" IsChecked="{Binding ShouldRemoveBreaks}"/>
         </GroupBox>
+        -->
         <Button Content="DO IT NOW!!!" IsEnabled="{Binding AreOptionsAvaiable}" Command="{Binding DoItNowCommand}"/>
     </StackPanel>
 </UserControl>

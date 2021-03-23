@@ -11,16 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="RegexMatcher" Version="1.0.7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="NAudio">
-      <HintPath>..\Libraries\NAudio.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpMikNAudio">
-      <HintPath>..\Libraries\SharpMikNAudio.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\SharpMik\SharpMik\SharpMikNAudio.csproj" />
   </ItemGroup>
 
   <ItemGroup>

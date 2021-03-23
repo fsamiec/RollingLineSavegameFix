@@ -1,10 +1,11 @@
 ﻿using RollingLineSavegameFix.Model;
-using System;
 using System.IO;
-using System.Windows;
 
 namespace RollingLineSavegameFix.Services
 {
+    /// <summary>
+    /// Manipulates Savegame as a fancy Service
+    /// </summary>
     public class SavegameService : ISavegameService
     {
         private readonly MainModel _model;
@@ -49,9 +50,14 @@ namespace RollingLineSavegameFix.Services
             if (_model.ShouldRemoveAllWaggons)
             {
                 _removeWaggonsService.RemoveAllWaggons();
+            } 
+            
+            if (_model.ShouldRemoveFaultyWaggons)
+            {
+                _removeWaggonsService.RemoveFaultyQuickmodWaggons();
             }
 
-            File.WriteAllText(_model.FileName+"_", _model.FileContent);         
+            File.WriteAllText(_model.FileName, _model.FileContent);         
         }              
     }
 }
