@@ -1,0 +1,3 @@
+[submodule "SharpMik"]
+	path = SharpMik
+	url = https://github.com/thegouldfish/SharpMik
