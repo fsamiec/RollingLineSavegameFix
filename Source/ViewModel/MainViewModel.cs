@@ -100,22 +100,6 @@ namespace RollingLineSavegameFix.ViewModel
             }
         }
 
-        /// <summary>
-        /// Removes all Breaks
-        /// </summary>
-        public bool ShouldRemoveBreaks
-        {
-            get => _model.ShouldRemoveBreaks; set
-            {
-                if (_model.ShouldRemoveBreaks == value)
-                    return;
-
-                _model.ShouldRemoveBreaks = value;
-                OnPropertyChanged(nameof(ShouldRemoveBreaks));
-            }
-        }
-
-
         private ICommand _doItNowCommand;
         public ICommand DoItNowCommand
         {

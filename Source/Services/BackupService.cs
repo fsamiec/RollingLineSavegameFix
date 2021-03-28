@@ -1,25 +1,30 @@
 ﻿using RollingLineSavegameFix.Model;
 using System;
-using System.IO;
+using System.IO.Abstractions;
 
 namespace RollingLineSavegameFix.Services
 {
     public class BackupService : IBackupService
     {
-        private readonly MainModel _model;
-        public BackupService(MainModel model)
+        private readonly IMainModel _model;
+        private readonly IFileSystem _fileSystem;
+        public BackupService(IMainModel model) : this (model, new FileSystem())
+        { }
+
+        public BackupService(IMainModel model, IFileSystem fileSystem)
         {
             _model = model;
+            _fileSystem = fileSystem;
         }
 
         public void WriteBackupFile()
-        {
-            var directory = Path.GetDirectoryName(_model.FileName);
-            var filenameWithoutExtension = Path.GetFileNameWithoutExtension(_model.FileName);
-            var extension = Path.GetExtension(_model.FileName);
+        {            
+            var directory = _fileSystem.Path.GetDirectoryName(_model.FileName);
+            var filenameWithoutExtension = _fileSystem.Path.GetFileNameWithoutExtension(_model.FileName);
+            var extension = _fileSystem.Path.GetExtension(_model.FileName);
 
-            var backupFileName = $"{directory}\\{filenameWithoutExtension}_{DateTime.Now:yyyyMMddHHmmss}{extension}";            
-            File.WriteAllText(backupFileName, _model.FileContent);                        
+            var backupFileName = $"{directory}\\{filenameWithoutExtension}_{DateTime.Now:yyyyMMddHHmmss}{extension}";
+            _fileSystem.File.WriteAllText(backupFileName, _model.FileContent);                        
         }
     }   
 }

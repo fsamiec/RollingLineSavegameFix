@@ -1,6 +1,7 @@
 ﻿namespace RollingLineSavegameFix.Model
 {
-    public class MainModel
+
+    public class MainModel : IMainModel
     {
         /// <summary>
         /// Path to Savegame File
@@ -20,11 +21,6 @@
         /// <summary>
         /// Removes all Waggons on saving
         /// </summary>
-        public bool ShouldRemoveAllWaggons { get; set; }
-        
-        /// <summary>
-        /// Removes Breaks on saving
-        /// </summary>
-        public bool ShouldRemoveBreaks { get; set; }
+        public bool ShouldRemoveAllWaggons { get; set; }        
     }
 }

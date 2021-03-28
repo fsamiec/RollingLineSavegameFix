@@ -1,5 +1,6 @@
 ﻿using RollingLineSavegameFix.Model;
 using System.IO;
+using System.IO.Abstractions;
 
 namespace RollingLineSavegameFix.Services
 {
@@ -8,28 +9,40 @@ namespace RollingLineSavegameFix.Services
     /// </summary>
     public class SavegameService : ISavegameService
     {
-        private readonly MainModel _model;
+        private readonly IMainModel _model;
         private readonly IBackupService _backupService;
         private readonly IReformatService _reformatService;
         private readonly IRemoveWaggonsService _removeWaggonsService;
+        private readonly IFileSystem _fileSystem;
 
         public SavegameService(
-            MainModel model, 
+            IMainModel model, 
             IBackupService backupService,
             IReformatService reformatService,
-            IRemoveWaggonsService removeWaggonsService)
+            IRemoveWaggonsService removeWaggonsService,
+            IFileSystem fileSystem) 
         {
             _model = model;
             _backupService = backupService;
             _reformatService = reformatService;
             _removeWaggonsService = removeWaggonsService;
+            _fileSystem = fileSystem;
+        }
+
+        public SavegameService(
+            MainModel model,
+            IBackupService backupService,
+            IReformatService reformatService,
+            IRemoveWaggonsService removeWaggonsService)
+            : this(model, backupService, reformatService, removeWaggonsService, new FileSystem())
+        {            
         }
 
         public string LoadSavegame()
         {
             try
             {
-                _model.FileContent = File.ReadAllText(_model.FileName);
+                _model.FileContent = _fileSystem.File.ReadAllText(_model.FileName);
             }
             catch (FileNotFoundException fileNotFoundException)
             {
@@ -57,7 +70,7 @@ namespace RollingLineSavegameFix.Services
                 _removeWaggonsService.RemoveFaultyQuickmodWaggons();
             }
 
-            File.WriteAllText(_model.FileName, _model.FileContent);         
+            _fileSystem.File.WriteAllText(_model.FileName, _model.FileContent);         
         }              
     }
 }

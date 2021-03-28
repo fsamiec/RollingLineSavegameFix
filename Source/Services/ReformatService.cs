@@ -5,9 +5,9 @@ namespace RollingLineSavegameFix.Services
 {
     public class ReformatService : IReformatService
     {
-        private readonly MainModel _model;
+        private readonly IMainModel _model;
 
-        public ReformatService(MainModel model)
+        public ReformatService(IMainModel model)
         {
             _model = model;
         }

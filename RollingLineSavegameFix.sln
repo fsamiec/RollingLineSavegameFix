@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RollingLineSavegameFix", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpMikNAudio", "SharpMik\SharpMik\SharpMikNAudio.csproj", "{95FC7357-E061-4611-A674-98D0499DC202}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollingLineSavegameFix.Tests", "Tests\RollingLineSavegameFix.Tests\RollingLineSavegameFix.Tests.csproj", "{CBAE409E-9C3F-47D9-8182-D9BBF4FB9186}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{DE0598F7-942A-457D-8F12-9A6782DF4D4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{95FC7357-E061-4611-A674-98D0499DC202}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95FC7357-E061-4611-A674-98D0499DC202}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95FC7357-E061-4611-A674-98D0499DC202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBAE409E-9C3F-47D9-8182-D9BBF4FB9186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBAE409E-9C3F-47D9-8182-D9BBF4FB9186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBAE409E-9C3F-47D9-8182-D9BBF4FB9186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAE409E-9C3F-47D9-8182-D9BBF4FB9186}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95FC7357-E061-4611-A674-98D0499DC202} = {DE0598F7-942A-457D-8F12-9A6782DF4D4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1FC7DA53-7BCB-46A1-9AD5-C7734D2DE493}
