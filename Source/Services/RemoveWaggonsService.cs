@@ -55,9 +55,9 @@ namespace RollingLineSavegameFix.Services
                             continue;
                     }
                     resultBuilder.Append(lines[i]);
-                }                
+                }
 
-                _model.FileContent = _regexService.Replace(_model.FileContent, matchRegExResponse.Prefix + resultBuilder + matchRegExResponse.Suffix, matchRegExResponse.MatchedRegEx)
+                _model.FileContent = _regexService.Replace(_model.FileContent, matchRegExResponse.Prefix + resultBuilder + matchRegExResponse.Suffix, matchRegExResponse.MatchedRegEx);
             }
         }          
     }
