@@ -11,3 +11,5 @@ This Project was created to fix corrupt [Rolling Line (Steam Link)](https://stor
 # Contributors
 - caspa (thats me)
 - m0ne
+- erbs0r
+- Deekay
