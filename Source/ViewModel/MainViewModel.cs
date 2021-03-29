@@ -12,7 +12,7 @@ namespace RollingLineSavegameFix.ViewModel
         private IReformatService _reformatService;
         private IRegExService _findWaggonsRegExService;        
         private IRemoveWaggonsService _removeWaggonsService;
-        private MainModel _model;
+        private IMainModel _model;
 
         public MainViewModel()
         {

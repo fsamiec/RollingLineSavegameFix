@@ -30,7 +30,7 @@ namespace RollingLineSavegameFix.Services
         }
 
         public SavegameService(
-            MainModel model,
+            IMainModel model,
             IBackupService backupService,
             IReformatService reformatService,
             IRemoveWaggonsService removeWaggonsService)
