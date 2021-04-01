@@ -1,7 +1,8 @@
 ﻿<UserControl x:Class="RollingLineSavegameFix.View.BannerView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RollingLineSavegameFix">
     <StackPanel>
-        <Image Source="/Resources/banner.png" />
+        <Image Source="pack://application:,,,/Resources/banner.png" />
     </StackPanel>
 </UserControl>

@@ -1,7 +1,10 @@
 ﻿<UserControl x:Class="RollingLineSavegameFix.View.StatusBarView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StatusBar>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:vm="clr-namespace:RollingLineSavegameFix.ViewModel">
+    <UserControl.DataContext>
+        <vm:StatusBarViewModel />
+    </UserControl.DataContext>
+<StatusBar>
         <StatusBar.ItemsPanel>
             <ItemsPanelTemplate>
                 <Grid>
@@ -20,6 +23,9 @@
             <Label>NGR</Label>
         </StatusBarItem>
         <StatusBarItem Grid.Column="2" HorizontalContentAlignment="Right">
+            <TextBlock >                  
+                <Hyperlink NavigateUri="{Binding MyUri}" Command="{Binding NfoCommand}">nfo</Hyperlink>
+            </TextBlock>
             <!--<Button> Mute </Button>-->
         </StatusBarItem>
     </StatusBar>

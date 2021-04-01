@@ -1,0 +1,18 @@
+﻿<Window x:Class="RollingLineSavegameFix.View.NfoWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:RollingLineSavegameFix.ViewModel"
+        mc:Ignorable="d"
+        Title="{Binding NfoTitle}" Height="480" Width="620"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow">
+    <Window.DataContext>
+        <vm:NfoWindowViewModel />
+    </Window.DataContext>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+        <TextBlock Text="{Binding NfoText, Mode=OneTime}" FontFamily="Courier New" Background="Black" Foreground="WhiteSmoke"/>
+    </ScrollViewer>
+</Window>

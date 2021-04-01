@@ -6,12 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\banner.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.IO.Abstractions" Version="13.2.28" />
+  <ItemGroup>    
+    <PackageReference Include="System.IO.Abstractions" Version="13.2.28" />    
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,11 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\banner.png" />
-  </ItemGroup>
-
-  <ItemGroup>
+	  <Resource Include="Resources\banner.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
     <None Update="Resources\music.xm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\nfl.nfo">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
