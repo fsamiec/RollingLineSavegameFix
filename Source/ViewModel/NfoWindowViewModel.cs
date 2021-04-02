@@ -4,7 +4,6 @@ namespace RollingLineSavegameFix.ViewModel
 {
     public class NfoWindowViewModel : ViewModelBase
     {
-
         private readonly INfoReaderService _nfoReaderService;
 
         public NfoWindowViewModel()
@@ -12,12 +11,8 @@ namespace RollingLineSavegameFix.ViewModel
             _nfoReaderService = new NfoReaderService();
         }
 
-        public string NfoText
-        {
-            get => _nfoReaderService.ReadNfo();
-        }
+        public string NfoText => _nfoReaderService.ReadNfo();        
 
-
-        public string NfoTitle => return "-:-We Code Together -We Die Together -:-";
+        public string NfoTitle => "-:-We Code Together - We Die Together -:-";
     }
 }
