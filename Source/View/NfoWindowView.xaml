@@ -13,6 +13,6 @@
     </Window.DataContext>
 
     <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-        <TextBlock Text="{Binding NfoText, Mode=OneTime}" FontFamily="Courier New" Background="Black" Foreground="WhiteSmoke"/>
+        <TextBlock Text="{Binding NfoText, Mode=OneTime}" FontFamily="Courier New"/>
     </ScrollViewer>
 </Window>
