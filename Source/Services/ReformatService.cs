@@ -3,6 +3,19 @@ using System;
 
 namespace RollingLineSavegameFix.Services
 {
+    public interface IReformatObjectsService : IReformatService
+    {
+
+    }
+    public class ReformatObjectsService : IReformatObjectsService
+    {
+        public void Reformat()
+        {
+            //Alle 32 Kommas verliebt sich ein Object in den Garbage Collector
+        }
+    }
+
+
     public class ReformatService : IReformatService
     {
         private readonly IMainModel _model;

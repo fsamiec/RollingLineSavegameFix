@@ -10,8 +10,10 @@ namespace RollingLineSavegameFix.ViewModel
         private ISavegameService _savegameService;
         private IBackupService _backupService;
         private IReformatService _reformatService;
-        private IRegExService _findWaggonsRegExService;        
+        private IRegExService _findWaggonsRegExService;
+        private IRegExService _findObjectsRegExService;
         private IRemoveWaggonsService _removeWaggonsService;
+        private IMoveObjectsService _moveObjectsService;
         private IMainModel _model;
 
         public MainViewModel()
@@ -27,8 +29,9 @@ namespace RollingLineSavegameFix.ViewModel
             _reformatService = new ReformatService(_model);
             _findWaggonsRegExService = new FindWaggonsRegExService();
             _removeWaggonsService = new RemoveWaggonsService(_model, _findWaggonsRegExService);
-            _savegameService = new SavegameService(_model, _backupService, _reformatService, _removeWaggonsService);
-            
+            _findObjectsRegExService = new FindObjectsRegExService();
+            _moveObjectsService = new MoveObjectsService(_model, _findObjectsRegExService);
+            _savegameService = new SavegameService(_model, _backupService, _reformatService, _removeWaggonsService, _moveObjectsService);            
         }
 
         public string FileName
@@ -54,6 +57,7 @@ namespace RollingLineSavegameFix.ViewModel
         }
 
         private bool shouldNotRemoveWaggons = true;
+        
         /// <summary>
         /// Remove no Waggons
         /// </summary>
@@ -92,13 +96,79 @@ namespace RollingLineSavegameFix.ViewModel
         /// </summary>
         public bool ShouldRemoveAllWaggons
         {
-            get => _model.ShouldRemoveAllWaggons; set
+            get => _model.ShouldRemoveAllWaggons; 
+            set
             {
                 if (_model.ShouldRemoveAllWaggons == value)
                     return;
 
                 _model.ShouldRemoveAllWaggons = value;
                 OnPropertyChanged(nameof(ShouldRemoveAllWaggons));
+            }
+        }
+
+
+        /// <summary>
+        ///     Triggers object moving
+        /// </summary>
+        public bool ShouldMoveObjects 
+        { 
+            get => _model.ShouldMoveObjects;
+            set
+            {
+                if (_model.ShouldMoveObjects == value)
+                    return;
+
+                _model.ShouldMoveObjects = value;
+                OnPropertyChanged(nameof(ShouldMoveObjects));
+            }
+        }
+
+        /// <summary>
+        ///     Moves objects on X Axis
+        /// </summary>
+        public float MoveXAxisValue
+        {
+            get => _model.MoveXAxisValue;
+            set
+            {
+                if (_model.MoveXAxisValue == value)
+                    return;
+
+                _model.MoveXAxisValue = value;
+                OnPropertyChanged(nameof(MoveXAxisValue));
+            }
+        }
+
+        /// <summary>
+        ///     Moves objects on Y Axis
+        /// </summary>
+        public float MoveYAxisValue
+        {
+            get => _model.MoveYAxisValue;
+            set
+            {
+                if (_model.MoveYAxisValue == value)
+                    return;
+
+                _model.MoveXAxisValue = value;
+                OnPropertyChanged(nameof(MoveYAxisValue));
+            }
+        }
+
+        /// <summary>
+        ///     Moves objects on Z Axis
+        /// </summary>
+        public float MoveZAxisValue
+        {
+            get => _model.MoveZAxisValue;
+            set
+            {
+                if (_model.MoveZAxisValue == value)
+                    return;
+
+                _model.MoveXAxisValue = value;
+                OnPropertyChanged(nameof(MoveZAxisValue));
             }
         }
 

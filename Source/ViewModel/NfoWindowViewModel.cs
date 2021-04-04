@@ -13,6 +13,6 @@ namespace RollingLineSavegameFix.ViewModel
 
         public string NfoText => _nfoReaderService.ReadNfo();        
 
-        public string NfoTitle => "-:-We Code Together - We Die Together -:-";
+        public string NfoTitle => "-:- We Code Together - We Die Together -:-";
     }
 }

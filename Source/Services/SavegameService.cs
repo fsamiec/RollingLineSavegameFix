@@ -13,6 +13,7 @@ namespace RollingLineSavegameFix.Services
         private readonly IBackupService _backupService;
         private readonly IReformatService _reformatService;
         private readonly IRemoveWaggonsService _removeWaggonsService;
+        private readonly IMoveObjectsService _moveObjectsService;
         private readonly IFileSystem _fileSystem;
 
         public SavegameService(
@@ -20,12 +21,14 @@ namespace RollingLineSavegameFix.Services
             IBackupService backupService,
             IReformatService reformatService,
             IRemoveWaggonsService removeWaggonsService,
+            IMoveObjectsService moveObjectsService,
             IFileSystem fileSystem) 
         {
             _model = model;
             _backupService = backupService;
             _reformatService = reformatService;
             _removeWaggonsService = removeWaggonsService;
+            _moveObjectsService = moveObjectsService;
             _fileSystem = fileSystem;
         }
 
@@ -33,8 +36,9 @@ namespace RollingLineSavegameFix.Services
             IMainModel model,
             IBackupService backupService,
             IReformatService reformatService,
-            IRemoveWaggonsService removeWaggonsService)
-            : this(model, backupService, reformatService, removeWaggonsService, new FileSystem())
+            IRemoveWaggonsService removeWaggonsService,
+            IMoveObjectsService moveObjectsService)
+            : this(model, backupService, reformatService, removeWaggonsService, moveObjectsService, new FileSystem())
         {            
         }
 
@@ -68,6 +72,11 @@ namespace RollingLineSavegameFix.Services
             if (_model.ShouldRemoveFaultyWaggons)
             {
                 _removeWaggonsService.RemoveFaultyQuickmodWaggons();
+            }
+
+            if (_model.ShouldMoveObjects)
+            {
+                _moveObjectsService.MoveObjects();
             }
 
             _fileSystem.File.WriteAllText(_model.FileName, _model.FileContent);         
