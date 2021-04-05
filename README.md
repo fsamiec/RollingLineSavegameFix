@@ -2,6 +2,8 @@
 
 This Project was created to fix corrupt [Rolling Line (Steam Link)](https://store.steampowered.com/app/754150/Rolling_Line/ "Rolling Line Steam") Savegames.
 
+You'll need [.NET 5 (x86) Runtime](https://dotnet.microsoft.com/download/dotnet/5.0) installed.
+
 ## Features
 - Removes all Wagons from a Savegame
 - Try to remove faulty Wagons from a Savegame
