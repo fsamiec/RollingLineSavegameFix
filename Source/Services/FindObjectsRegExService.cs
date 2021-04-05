@@ -1,6 +1,7 @@
 ﻿namespace RollingLineSavegameFix.Services
 {
-    public class FindObjectsRegExService : GenericRegExService
+
+    public class FindObjectsRegExService : GenericRegExService, IFindObjectsRegExService
     {
         protected override string MagicRegex() => @"(#objects#\d*,)((?:\s|.)*?)(#track#|#waggons#|#points#)";
 

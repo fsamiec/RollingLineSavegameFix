@@ -10,10 +10,13 @@ namespace RollingLineSavegameFix.ViewModel
         private ISavegameService _savegameService;
         private IBackupService _backupService;
         private IReformatService _reformatService;
-        private IRegExService _findWaggonsRegExService;
-        private IRegExService _findObjectsRegExService;
+        private IFindWaggonsRegExService _findWaggonsRegExService;
+        private IFindObjectsRegExService _findObjectsRegExService;
+        private IFindTracksRegExService _findTracksRegExService;
         private IRemoveWaggonsService _removeWaggonsService;
         private IMoveObjectsService _moveObjectsService;
+        private IMoveTracksService _moveTracksService;
+        private IMoveWaggonsService _moveWaggonsService;
         private IMainModel _model;
 
         public MainViewModel()
@@ -29,9 +32,15 @@ namespace RollingLineSavegameFix.ViewModel
             _reformatService = new ReformatService(_model);
             _findWaggonsRegExService = new FindWaggonsRegExService();
             _removeWaggonsService = new RemoveWaggonsService(_model, _findWaggonsRegExService);
+            
             _findObjectsRegExService = new FindObjectsRegExService();
+            _findTracksRegExService = new FindTracksRegExService();
+            
             _moveObjectsService = new MoveObjectsService(_model, _findObjectsRegExService);
-            _savegameService = new SavegameService(_model, _backupService, _reformatService, _removeWaggonsService, _moveObjectsService);            
+            _moveTracksService = new MoveTracksService(_model, _findTracksRegExService);
+            _moveWaggonsService = new MoveWaggonsService(_model, _findWaggonsRegExService);
+
+            _savegameService = new SavegameService(_model, _backupService, _reformatService, _removeWaggonsService, _moveObjectsService, _moveTracksService, _moveWaggonsService);            
         }
 
         public string FileName
@@ -151,7 +160,7 @@ namespace RollingLineSavegameFix.ViewModel
                 if (_model.MoveYAxisValue == value)
                     return;
 
-                _model.MoveXAxisValue = value;
+                _model.MoveYAxisValue = value;
                 OnPropertyChanged(nameof(MoveYAxisValue));
             }
         }
@@ -167,7 +176,7 @@ namespace RollingLineSavegameFix.ViewModel
                 if (_model.MoveZAxisValue == value)
                     return;
 
-                _model.MoveXAxisValue = value;
+                _model.MoveZAxisValue = value;
                 OnPropertyChanged(nameof(MoveZAxisValue));
             }
         }

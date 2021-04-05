@@ -14,6 +14,8 @@ namespace RollingLineSavegameFix.Services
         private readonly IReformatService _reformatService;
         private readonly IRemoveWaggonsService _removeWaggonsService;
         private readonly IMoveObjectsService _moveObjectsService;
+        private readonly IMoveTracksService _moveTracksService;
+        private readonly IMoveWaggonsService _moveWaggonsService;
         private readonly IFileSystem _fileSystem;
 
         public SavegameService(
@@ -22,6 +24,8 @@ namespace RollingLineSavegameFix.Services
             IReformatService reformatService,
             IRemoveWaggonsService removeWaggonsService,
             IMoveObjectsService moveObjectsService,
+            IMoveTracksService moveTracksService,
+            IMoveWaggonsService moveWaggonsService,
             IFileSystem fileSystem) 
         {
             _model = model;
@@ -29,6 +33,8 @@ namespace RollingLineSavegameFix.Services
             _reformatService = reformatService;
             _removeWaggonsService = removeWaggonsService;
             _moveObjectsService = moveObjectsService;
+            _moveTracksService = moveTracksService;
+            _moveWaggonsService = moveWaggonsService;
             _fileSystem = fileSystem;
         }
 
@@ -37,8 +43,10 @@ namespace RollingLineSavegameFix.Services
             IBackupService backupService,
             IReformatService reformatService,
             IRemoveWaggonsService removeWaggonsService,
-            IMoveObjectsService moveObjectsService)
-            : this(model, backupService, reformatService, removeWaggonsService, moveObjectsService, new FileSystem())
+            IMoveObjectsService moveObjectsService,
+            IMoveTracksService moveTracksService,
+            IMoveWaggonsService moveWaggonsService)
+            : this(model, backupService, reformatService, removeWaggonsService, moveObjectsService, moveTracksService, moveWaggonsService,new FileSystem())
         {            
         }
 
@@ -76,7 +84,9 @@ namespace RollingLineSavegameFix.Services
 
             if (_model.ShouldMoveObjects)
             {
-                _moveObjectsService.MoveObjects();
+                _moveObjectsService.Move();
+                _moveTracksService.Move();
+                _moveWaggonsService.Move();
             }
 
             _fileSystem.File.WriteAllText(_model.FileName, _model.FileContent);         

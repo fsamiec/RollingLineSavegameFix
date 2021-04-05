@@ -1,7 +1,7 @@
 ﻿namespace RollingLineSavegameFix.Services
 {
-    public interface IMoveObjectsService
+    public interface IMoveObjectsService : IMoveSomethingService
     {
-        void MoveObjects();
+        
     }
 }

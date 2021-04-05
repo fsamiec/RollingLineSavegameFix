@@ -45,9 +45,9 @@
                 <Label Grid.Row="2" Grid.Column="0"  Content="Y-Axis" />
                 <Label Grid.Row="3" Grid.Column="0"  Content="Z-Axis" />
 
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=MoveXAxisValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N4}" TextAlignment="Right"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=MoveYAxisValue, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat=N4}" TextAlignment="Right"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=MoveZAxisValue, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat=N4}" TextAlignment="Right"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=MoveXAxisValue, StringFormat=N4}" TextAlignment="Right" IsEnabled="{Binding ShouldMoveObjects}" />
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=MoveYAxisValue, StringFormat=N4}" TextAlignment="Right" IsEnabled="{Binding ShouldMoveObjects}" />
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=MoveZAxisValue, StringFormat=N4}" TextAlignment="Right" IsEnabled="{Binding ShouldMoveObjects}" />
             </Grid>
             
         </GroupBox>

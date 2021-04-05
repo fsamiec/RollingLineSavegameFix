@@ -6,20 +6,18 @@ using System.Text.RegularExpressions;
 
 namespace RollingLineSavegameFix.Services
 {
-    public class MoveObjectsService : IMoveObjectsService
+    public abstract class MoveSomethingService : IMoveObjectsService
     {
         private readonly IMainModel _model;
         private readonly IRegExService _regExService;        
 
-        public MoveObjectsService(
-            IMainModel mainModel,
-            IRegExService regExService)
+        protected MoveSomethingService(IMainModel mainModel, IRegExService regExService)
         {
             _model = mainModel ?? throw new ArgumentNullException(nameof(mainModel));
             _regExService = regExService ?? throw new ArgumentNullException(nameof(regExService));            
         }
 
-        public void MoveObjects()
+        public void Move()
         {
             var matchRegExResponse = _regExService.MatchRegex(_model.FileContent);
             if (!matchRegExResponse.RegExMatched)
