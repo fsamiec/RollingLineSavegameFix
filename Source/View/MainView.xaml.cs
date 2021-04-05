@@ -4,8 +4,10 @@ using SharpMik;
 using SharpMik.Drivers;
 using SharpMik.Player;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace RollingLineSavegameFix.View
 {

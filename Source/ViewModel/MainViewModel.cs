@@ -147,7 +147,7 @@ namespace RollingLineSavegameFix.ViewModel
         {
             get => _model.MoveYAxisValue;
             set
-            {
+            {                
                 if (_model.MoveYAxisValue == value)
                     return;
 

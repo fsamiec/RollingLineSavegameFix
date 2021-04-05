@@ -16,6 +16,7 @@ namespace RollingLineSavegameFix.Tests.Services
             [Frozen] IBackupService backupService,
             [Frozen] IReformatService reformatService,
             [Frozen] IRemoveWaggonsService removeWaggonsService,
+            [Frozen] IMoveObjectsService moveObjectsService,
             string fileContent,
             string filePath
             )
@@ -26,7 +27,7 @@ namespace RollingLineSavegameFix.Tests.Services
             var mockedFileContent = new MockFileData(fileContent);
             mockedFileSystem.AddFile(filePath, mockedFileContent) ;
             model.FileName.Returns(filePath);            
-            var sut = new SavegameService(model, backupService, reformatService, removeWaggonsService, mockedFileSystem);
+            var sut = new SavegameService(model, backupService, reformatService, removeWaggonsService, moveObjectsService, mockedFileSystem);
 
             //Act
             var result = sut.LoadSavegame();
@@ -45,14 +46,15 @@ namespace RollingLineSavegameFix.Tests.Services
             [Frozen] IBackupService backupService,
             [Frozen] IReformatService reformatService,
             [Frozen] IRemoveWaggonsService removeWaggonsService,            
+            [Frozen] IMoveObjectsService moveObjectsService,
             string filePath
             )
         {
             //Arrange
 
             var mockedFileSystem = new MockFileSystem();                        
-            model.FileName.Returns(filePath);
-            var sut = new SavegameService(model, backupService, reformatService, removeWaggonsService, mockedFileSystem);
+            model.FileName.Returns(filePath);            
+            var sut = new SavegameService(model, backupService, reformatService, removeWaggonsService, moveObjectsService, mockedFileSystem);
 
             //Act
             var result = sut.LoadSavegame();
