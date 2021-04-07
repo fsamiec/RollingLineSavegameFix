@@ -26,17 +26,18 @@ namespace RollingLineSavegameFix.Services
             }
 
             var resultBuilder = new StringBuilder(matchRegExResponse.Content);           
-            var coordinateRegex = new Regex(@"(-?\d*\.\d*)_(-?\d*\.\d*)_(-?\d*\.\d*)");
+            var coordinateRegex = new Regex(@",([0-9]),(-?\d*\.\d*)_(-?\d*\.\d*)_(-?\d*\.\d*),");
             var coordinateMatches = coordinateRegex.Matches(matchRegExResponse.Content);
 
             for(var i = coordinateMatches.Count -1; i >= 0; i--)
             {
                 var match = coordinateMatches[i];
-                var x = ParseAndAddValue(match.Groups[1].Value, _model.MoveXAxisValue);
-                var y = ParseAndAddValue(match.Groups[2].Value, _model.MoveYAxisValue);
-                var z = ParseAndAddValue(match.Groups[3].Value, _model.MoveZAxisValue);
+                var preValue = match.Groups[1].Value;
+                var x = ParseAndAddValue(match.Groups[2].Value, _model.MoveXAxisValue);
+                var y = ParseAndAddValue(match.Groups[3].Value, _model.MoveYAxisValue);
+                var z = ParseAndAddValue(match.Groups[4].Value, _model.MoveZAxisValue);
 
-                resultBuilder.Replace(match.Value, $"{x}_{y}_{z}", match.Index, match.Length);
+                resultBuilder.Replace(match.Value, $",{preValue},{x}_{y}_{z},", match.Index, match.Length);
             }
             var result = resultBuilder.ToString();
             
