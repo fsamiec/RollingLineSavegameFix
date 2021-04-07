@@ -5,8 +5,9 @@ This Project was created to fix corrupt [Rolling Line (Steam Link)](https://stor
 You'll need [.NET 5 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/5.0) installed.
 
 ## Features
-- Removes all Wagons from a Savegame
-- Try to remove faulty Wagons from a Savegame
+- Removes all Rolling Material from a Savegame
+- Try to remove faulty Rolling Material from a Savegame
+- Moving Objects, Tracks an Rolling Material
 - Annoys you with some cool Chiptune Music
 - Comes with a cool .nfo
 
