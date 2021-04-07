@@ -17,10 +17,10 @@
             </ItemsPanelTemplate>
         </StatusBar.ItemsPanel>
         <StatusBarItem Grid.Column="0">
-            <Label>... by caspa | m0ne</Label>
+            <Label>... by caspa | Trackmeister</Label>
         </StatusBarItem>
         <StatusBarItem Grid.Column="1" HorizontalContentAlignment="Center">
-            <Label>NGR</Label>
+            <Label>NFL</Label>
         </StatusBarItem>
         <StatusBarItem Grid.Column="2" HorizontalContentAlignment="Right">
             <TextBlock >                  
