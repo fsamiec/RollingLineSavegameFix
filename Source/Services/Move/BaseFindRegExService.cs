@@ -1,14 +1,15 @@
-﻿using System.Text.RegularExpressions;
+﻿using RollingLineSavegameFix.Model;
+using System.Text.RegularExpressions;
 
 namespace RollingLineSavegameFix.Services
 {
-    public abstract class GenericRegExService : IRegExService
+    public abstract class BaseFindRegExService : IRegExService
     {
         protected abstract string AlternateMagicRegex();
 
         protected abstract string MagicRegex();
 
-        public RegexServiceResponseModel MatchRegex(string content)
+        public IRegexServiceResponseModel MatchRegex(string content)
         {
             var result = new RegexServiceResponseModel();
 
@@ -18,8 +19,8 @@ namespace RollingLineSavegameFix.Services
                 result.Prefix = match.Groups[1].Value;
                 result.Content = match.Groups[2].Value;
                 result.Suffix = match.Groups[3].Value;
-                result.RegExMatched = true;
-                result.MatchedRegEx = MagicRegex();
+                result.HasMatched = true;
+                result.MatchingRegEx = MagicRegex();
             }
             else
             {
@@ -27,8 +28,8 @@ namespace RollingLineSavegameFix.Services
                 if (match.Success)
                 {
                     result.Prefix = match.Groups[0].Value;
-                    result.RegExMatched = true;
-                    result.MatchedRegEx = AlternateMagicRegex();
+                    result.HasMatched = true;
+                    result.MatchingRegEx = AlternateMagicRegex();
                 }
             }
 

@@ -7,7 +7,7 @@ namespace RollingLineSavegameFix.Services
 
     }
 
-    public class FindWaggonsRegExService : GenericRegExService, IFindWaggonsRegExService
+    public class FindWaggonsRegExService : BaseFindRegExService, IFindWaggonsRegExService
     {
         protected override string AlternateMagicRegex() => @"(#wagons#\d*,)((?:\s|.)*)";
 

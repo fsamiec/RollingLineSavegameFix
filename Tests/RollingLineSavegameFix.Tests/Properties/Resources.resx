@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Services_Move_MultipleTracks_ExpectedResult" xml:space="preserve">
+    <value>ct_dynamic,1,X_Y_Z,0_118.7188_0,11,-1,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_17.8_10_7.54_1_-1.652195E-06_-6.437301E-06_-9.225045E-05_-0.06684428_0.05747461_0.7618518_356.1857_-1.611375E-08_0_4.748599_169.9722_0_7_0_0_0_0_180_0_0_6_22_1_1_12,-1,0,7_0,kcc0:h0:s0:v49:lr50:hr20,,1,%ct_dynamic,1,X_Y_Z,8.69113_76.45975_348.0763,19,-1,-1,0,0,0,1,0,0,0,0,0,0,0,-1,1,,8_1_3_30_7.5_0_6_22_1_0.1_2,-1,0,7_0,kcc0:h0:s0:v49:lr50:hr20,2&amp;kcc0:h7:s56:v78:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;-1&amp;kcc0:h7:s36:v60:lr50:hr10:mt0&amp;kcc0:h0:s0:v18:lr50:hr10:mt0&amp;-1&amp;kcc0:h7:s56:v78:lr50:hr0&amp;-1&amp;kcc0:h7:s56:v68:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;-1&amp;kcc0:h0:s0:v74:lr50:hr10:mt0&amp;-1&amp;kcc0:h6:s40:v49:lr50:hr10:mt0&amp;kcc0:h7:s36:v60:lr50:hr10:mt0&amp;kcc0:h6:s26:v33:lr50:hr10:mt0&amp;kcc0:h9:s12:v87:lr50:hr10:mt0&amp;1&amp;0&amp;0&amp;1,1,%ct_dynamic,1,X_Y_Z,0_80.42181_0,36,37,43,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,%ct_dynamic,1,X_Y_Z,0_125.4218_0,43,36,42,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,</value>
+  </data>
+  <data name="Services_Move_MultipleTracks_Source" xml:space="preserve">
+    <value>ct_dynamic,1,16.42576_2.081065_61.173,0_118.7188_0,11,-1,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_17.8_10_7.54_1_-1.652195E-06_-6.437301E-06_-9.225045E-05_-0.06684428_0.05747461_0.7618518_356.1857_-1.611375E-08_0_4.748599_169.9722_0_7_0_0_0_0_180_0_0_6_22_1_1_12,-1,0,7_0,kcc0:h0:s0:v49:lr50:hr20,,1,%ct_dynamic,1,16.88964_2.089037_62.57778,8.69113_76.45975_348.0763,19,-1,-1,0,0,0,1,0,0,0,0,0,0,0,-1,1,,8_1_3_30_7.5_0_6_22_1_0.1_2,-1,0,7_0,kcc0:h0:s0:v49:lr50:hr20,2&amp;kcc0:h7:s56:v78:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;-1&amp;kcc0:h7:s36:v60:lr50:hr10:mt0&amp;kcc0:h0:s0:v18:lr50:hr10:mt0&amp;-1&amp;kcc0:h7:s56:v78:lr50:hr0&amp;-1&amp;kcc0:h7:s56:v68:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;-1&amp;kcc0:h0:s0:v74:lr50:hr10:mt0&amp;-1&amp;kcc0:h6:s40:v49:lr50:hr10:mt0&amp;kcc0:h7:s36:v60:lr50:hr10:mt0&amp;kcc0:h6:s26:v33:lr50:hr10:mt0&amp;kcc0:h9:s12:v87:lr50:hr10:mt0&amp;1&amp;0&amp;0&amp;1,1,%ct_dynamic,1,17.19384_1.918186_60.22345,0_80.42181_0,36,37,43,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,%ct_dynamic,1,16.73281_1.918186_60.32922,0_125.4218_0,43,36,42,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,</value>
+  </data>
+</root>

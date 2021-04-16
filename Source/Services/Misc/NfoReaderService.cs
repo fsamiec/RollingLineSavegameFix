@@ -3,7 +3,7 @@ using System.IO;
 using System.IO.Abstractions;
 using System.Text;
 
-namespace RollingLineSavegameFix.Services
+namespace RollingLineSavegameFix.Services.Misc
 {
 
     public class NfoReaderService : INfoReaderService
@@ -19,19 +19,19 @@ namespace RollingLineSavegameFix.Services
         }
 
         public string ReadNfo()
-        { 
-            
-           try
-           {                
+        {
+
+            try
+            {
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                 var encoding = Encoding.GetEncoding(865);
                 using StreamReader reader = new StreamReader("Resources\\nfl.nfo", encoding);
                 return reader.ReadToEnd();
-           }
-           catch
-           {             
+            }
+            catch
+            {
                 return string.Empty;
-           }            
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace RollingLineSavegameFix.ViewModel
         private IFindObjectsRegExService _findObjectsRegExService;
         private IFindTracksRegExService _findTracksRegExService;
         private IRemoveWaggonsService _removeWaggonsService;
+        private IParseAndAddFloatValue _parseAndAddFloatValue;
         private IMoveObjectsService _moveObjectsService;
         private IMoveTracksService _moveTracksService;
         private IMoveWaggonsService _moveWaggonsService;
@@ -35,10 +36,11 @@ namespace RollingLineSavegameFix.ViewModel
             
             _findObjectsRegExService = new FindObjectsRegExService();
             _findTracksRegExService = new FindTracksRegExService();
-            
-            _moveObjectsService = new MoveObjectsService(_model, _findObjectsRegExService);
-            _moveTracksService = new MoveTracksService(_model, _findTracksRegExService);
-            _moveWaggonsService = new MoveWaggonsService(_model, _findWaggonsRegExService);
+
+            _parseAndAddFloatValue = new ParseAndAddFloatValue();
+            _moveObjectsService = new MoveObjectsService(_model, _findObjectsRegExService, _parseAndAddFloatValue);
+            _moveTracksService = new MoveTracksService(_model, _findTracksRegExService, _parseAndAddFloatValue);
+            _moveWaggonsService = new MoveWaggonsService(_model, _findWaggonsRegExService, _parseAndAddFloatValue);
 
             _savegameService = new SavegameService(_model, _backupService, _reformatService, _removeWaggonsService, _moveObjectsService, _moveTracksService, _moveWaggonsService);            
         }

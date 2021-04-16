@@ -1,4 +1,4 @@
-﻿using RollingLineSavegameFix.Services;
+﻿using RollingLineSavegameFix.Services.Misc;
 
 namespace RollingLineSavegameFix.ViewModel
 {

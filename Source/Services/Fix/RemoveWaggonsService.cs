@@ -22,12 +22,12 @@ namespace RollingLineSavegameFix.Services
         {
             var matchRegExResponse = _regexService.MatchRegex(_model.FileContent);
 
-            if (matchRegExResponse.RegExMatched)
+            if (matchRegExResponse.HasMatched)
             {
                 _model.FileContent = _regexService.Replace(
                     _model.FileContent,
                     matchRegExResponse.Prefix + matchRegExResponse.Suffix,
-                    matchRegExResponse.MatchedRegEx);
+                    matchRegExResponse.MatchingRegEx);
             }       
         }
 
@@ -35,7 +35,7 @@ namespace RollingLineSavegameFix.Services
         {
             var matchRegExResponse = _regexService.MatchRegex(_model.FileContent);
 
-            if (matchRegExResponse.RegExMatched)
+            if (matchRegExResponse.HasMatched)
             {
                 var resultBuilder = new StringBuilder();                
                 var lines = matchRegExResponse.Content.Split(Environment.NewLine);
@@ -57,7 +57,7 @@ namespace RollingLineSavegameFix.Services
                     resultBuilder.Append(lines[i]);
                 }
 
-                _model.FileContent = _regexService.Replace(_model.FileContent, matchRegExResponse.Prefix + resultBuilder + matchRegExResponse.Suffix, matchRegExResponse.MatchedRegEx);
+                _model.FileContent = _regexService.Replace(_model.FileContent, matchRegExResponse.Prefix + resultBuilder + matchRegExResponse.Suffix, matchRegExResponse.MatchingRegEx);
             }
         }          
     }

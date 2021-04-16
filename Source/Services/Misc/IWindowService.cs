@@ -1,4 +1,4 @@
-﻿namespace RollingLineSavegameFix.Services
+﻿namespace RollingLineSavegameFix.Services.Misc
 {
     public interface IWindowService
     {
