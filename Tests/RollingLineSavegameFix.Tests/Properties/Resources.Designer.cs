@@ -61,6 +61,24 @@ namespace RollingLineSavegameFix.Tests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to co_magazine_rack,1,X_Y_Z,0_299.2413_0,-1,1,0,0,0,0,,%2,co_bin,1,X_Y_Z,0_301.6713_0,-1,1,0,0,0,0,,%5,table_square_0,1,X_Y_Z,344.6943_340.7983_356.4974,-1,1,0,0,0,-1,,-1,kcc0:h0:s0:v49:lr50:hr20,0,,%20,Flaschbier_89974,1,X_Y_Z,10.64229_72.00494_348.4519,-1,1,0,0,0,0,,-1,kcc0:h25:s42:v37:lr50:hr20:mt1:ma50_kcc0:h57:s2:v96:lr50:hr20_kcc0:h1:s68:v77:lr50:hr20_kcc0:h11:s61:v78:lr50:hr20,0,,%7,co_shape_cube_0_snap,1,X_Y_Z,349.5707_341.6674_346.5048,-1,1,0,0,0,-1,,-1,kcc0:h0:s0:v74:lr50:hr20,0,,%8,co_pylon_new,1,X_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Services_Move_MultipleObjects_ExpectedResult {
+            get {
+                return ResourceManager.GetString("Services_Move_MultipleObjects_ExpectedResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to co_magazine_rack,1,4.8653_-0.2121_62.6697,0_299.2413_0,-1,1,0,0,0,0,,%2,co_bin,1,4.5317_-0.2121_61.2512,0_301.6713_0,-1,1,0,0,0,0,,%5,table_square_0,1,9.102201_-0.4459265_63.02061,344.6943_340.7983_356.4974,-1,1,0,0,0,-1,,-1,kcc0:h0:s0:v49:lr50:hr20,0,,%20,Flaschbier_89974,1,14.42129_1.918189_61.34037,10.64229_72.00494_348.4519,-1,1,0,0,0,0,,-1,kcc0:h25:s42:v37:lr50:hr20:mt1:ma50_kcc0:h57:s2:v96:lr50:hr20_kcc0:h1:s68:v77:lr50:hr20_kcc0:h11:s61:v78:lr50:hr20,0,,%7,co_shape_cube_0_snap,1,12.47174_1.918188_60. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Services_Move_MultipleObjects_Source {
+            get {
+                return ResourceManager.GetString("Services_Move_MultipleObjects_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ct_dynamic,1,X_Y_Z,0_118.7188_0,11,-1,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_17.8_10_7.54_1_-1.652195E-06_-6.437301E-06_-9.225045E-05_-0.06684428_0.05747461_0.7618518_356.1857_-1.611375E-08_0_4.748599_169.9722_0_7_0_0_0_0_180_0_0_6_22_1_1_12,-1,0,7_0,kcc0:h0:s0:v49:lr50:hr20,,1,%ct_dynamic,1,X_Y_Z,8.69113_76.45975_348.0763,19,-1,-1,0,0,0,1,0,0,0,0,0,0,0,-1,1,,8_1_3_30_7.5_0_6_22_1_0.1_2,-1,0,7_0,kcc0:h0:s0:v49:lr50:hr20,2&amp;kcc0:h7:s56:v78:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;kcc0:h7:s56:v68:lr50:hr0&amp;-1&amp;kcc0:h7:s36: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Services_Move_MultipleTracks_ExpectedResult {
@@ -75,6 +93,24 @@ namespace RollingLineSavegameFix.Tests.Properties {
         internal static string Services_Move_MultipleTracks_Source {
             get {
                 return ResourceManager.GetString("Services_Move_MultipleTracks_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loco_DSJ_bumblebee,1,0,0,0,X_Y_Z,0_138.9726_0,-1,-1,8,34,3,0.926,0,8,34,2,0.271,0,-1.15,1,1,0_0,,,,0,,,,,%6,QuickMod_NG Caboose 1,1,0,0,0,X_Y_Z,0_35.4941_0,-1,-1,8,41,0,0.825,0,8,40,3,0.155,0,0,0,0,,,,,0,,,,,%7,QuickMod_NG Box White 4 Mirror,1,0,0,0,X_Y_Z,0_248.6993_0,-1,-1,8,36,1,0.835,0,8,36,0,0.181,0,0,0,0,,,,,0,,,,,.
+        /// </summary>
+        internal static string Services_Move_MultipleWaggons_ExpectedResult {
+            get {
+                return ResourceManager.GetString("Services_Move_MultipleWaggons_ExpectedResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loco_DSJ_bumblebee,1,0,0,0,13.8287_1.9288_61.4102,0_138.9726_0,-1,-1,8,34,3,0.926,0,8,34,2,0.271,0,-1.15,1,1,0_0,,,,0,,,,,%6,QuickMod_NG Caboose 1,1,0,0,0,16.6547_1.9288_61.2673,0_35.4941_0,-1,-1,8,41,0,0.825,0,8,40,3,0.155,0,0,0,0,,,,,0,,,,,%7,QuickMod_NG Box White 4 Mirror,1,0,0,0,17.2143_1.9288_60.2291,0_248.6993_0,-1,-1,8,36,1,0.835,0,8,36,0,0.181,0,0,0,0,,,,,0,,,,,.
+        /// </summary>
+        internal static string Services_Move_MultipleWaggons_Source {
+            get {
+                return ResourceManager.GetString("Services_Move_MultipleWaggons_Source", resourceCulture);
             }
         }
     }

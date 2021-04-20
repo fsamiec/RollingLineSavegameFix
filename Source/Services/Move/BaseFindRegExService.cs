@@ -38,5 +38,4 @@ namespace RollingLineSavegameFix.Services
 
         public string Replace(string content, string replacement, string regex) => Regex.Replace(content, regex, replacement);
     }
-
 }

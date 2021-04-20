@@ -16,13 +16,11 @@ namespace RollingLineSavegameFix.Tests.Services.Move
             [Frozen] IFindTracksRegExService findTracksRegExService,
             [Frozen] IParseAndAddFloatValue parseAndAddFloatValue,
             MoveTracksService sut,
-            string dummyContent
-            )
+            string dummyContent)
         {
             //Arrange
             model.FileContent.Returns(dummyContent);
             findTracksRegExService.MatchRegex(dummyContent).Returns(new RegexServiceResponseModel());
-
 
             //Act
             sut.Move();
@@ -47,7 +45,6 @@ namespace RollingLineSavegameFix.Tests.Services.Move
             //Arrange            
             var source = "ct_dynamic,1,16.73281_1.918186_60.32922,0_125.4218_0,43,36,42,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,";
             var expectedResult = "ct_dynamic,1,X_Y_Z,0_125.4218_0,43,36,42,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,";
-
 
             model.FileContent.Returns(dummyContent);
             regexServiceResponseModel.HasMatched = true;
@@ -83,13 +80,11 @@ namespace RollingLineSavegameFix.Tests.Services.Move
             var source = Resources.Services_Move_MultipleTracks_Source;
             var expectedResult = Resources.Services_Move_MultipleTracks_ExpectedResult;
 
-
             model.FileContent.Returns(dummyContent);
             regexServiceResponseModel.HasMatched = true;
             regexServiceResponseModel.Content = source;
             regexServiceResponseModel.MatchingRegEx = dummyRegex;
             findTracksRegExService.MatchRegex(dummyContent).Returns(regexServiceResponseModel);
-
 
             var coordinateCounter = 0;
             parseAndAddFloatValue.For(Arg.Any<string>(), Arg.Any<float>()).Returns((ci) =>
@@ -106,8 +101,7 @@ namespace RollingLineSavegameFix.Tests.Services.Move
                         coordinateCounter = 0;
                         return "Z";
                 };                
-            }
-            );
+            });
 
             //Act
             sut.Move();
@@ -117,6 +111,6 @@ namespace RollingLineSavegameFix.Tests.Services.Move
             findTracksRegExService.Received(1).MatchRegex(dummyContent);
             findTracksRegExService.Received(1).Replace(dummyContent, expectedResult, regexServiceResponseModel.MatchingRegEx);
         }
-
     }
+
 }
