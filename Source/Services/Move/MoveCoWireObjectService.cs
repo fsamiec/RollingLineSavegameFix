@@ -8,7 +8,7 @@ namespace RollingLineSavegameFix.Services
         private readonly IMainModel _model;
         private readonly IParseAndAddFloatValue _parseAndAddFloatValue;
 
-        private readonly Regex _regexDesTodesOfDoom = new Regex(@"(.*,\d,)((-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?))(,.*,)\2&((-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?))");
+        private readonly Regex _regexDesTodesOfDoom = new Regex(@"(.*,\d,)((-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?))(,.*,)\2&((-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?)_(-?\d*(?:\.\d*)?))", RegexOptions.Multiline);
 
         public MoveCoWireObjectService(
             IMainModel model,

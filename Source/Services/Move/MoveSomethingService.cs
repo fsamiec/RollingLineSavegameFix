@@ -27,7 +27,7 @@ namespace RollingLineSavegameFix.Services
                 return;
             }
 
-            var regex = new Regex(@"^(.*,\d,)(-?\d*\.\d*)_(-?\d*\.\d*)_(-?\d*\.\d*)(,.*)");
+            var regex = new Regex(@"^(.*,\d,)(-?\d*\.\d*)_(-?\d*\.\d*)_(-?\d*\.\d*)(,.*)", RegexOptions.Multiline);
             var someObjects = matchRegExResponse.Content.Split("%");
 
             for (var i = 0; i < someObjects.Length; i++)
