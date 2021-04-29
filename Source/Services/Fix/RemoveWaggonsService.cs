@@ -8,14 +8,17 @@ namespace RollingLineSavegameFix.Services
     public class RemoveWaggonsService : IRemoveWaggonsService
     {
         private readonly IMainModel _model;
+        private readonly IReformatService _reformatService;
         private readonly IRegExService _regexService;
 
         public RemoveWaggonsService(
-            IMainModel model, 
+            IMainModel model,
+            IReformatService reformatService,
             IRegExService regexService)
         {
-            _model = model;
-            _regexService = regexService;
+            _model = model ?? throw new ArgumentNullException(nameof(model));
+            _reformatService = reformatService ?? throw new ArgumentNullException(nameof(reformatService));
+            _regexService = regexService ?? throw new ArgumentNullException(nameof(regexService));
         }
 
         public void RemoveAllWaggons()
@@ -33,6 +36,7 @@ namespace RollingLineSavegameFix.Services
 
         public void RemoveFaultyQuickmodWaggons()
         {
+            _reformatService.Reformat();
             var matchRegExResponse = _regexService.MatchRegex(_model.FileContent);
 
             if (matchRegExResponse.HasMatched)
