@@ -33,18 +33,18 @@ namespace RollingLineSavegameFix.ViewModel
             _backupService = new BackupService(_model);
             _reformatService = new ReformatService(_model);
             _findWaggonsRegExService = new FindWaggonsRegExService();
-            _removeWaggonsService = new RemoveWaggonsService(_model, _findWaggonsRegExService);
+            _removeWaggonsService = new RemoveWaggonsService(_model, _reformatService, _findWaggonsRegExService);
             
             _findObjectsRegExService = new FindObjectsRegExService();
             _findTracksRegExService = new FindTracksRegExService();
 
             _parseAndAddFloatValue = new ParseAndAddFloatValue();
             _moveCoWireObjectService = new MoveCoWireObjectService(_model, _parseAndAddFloatValue);
-            _moveObjectsService = new MoveObjectsService(_model, _findObjectsRegExService, _moveCoWireObjectService, _parseAndAddFloatValue);
+            _moveObjectsService = new MoveObjectsService(_model, _findObjectsRegExService, _moveCoWireObjectService, _parseAndAddFloatValue);            
             _moveTracksService = new MoveTracksService(_model, _findTracksRegExService, _parseAndAddFloatValue);
             _moveWaggonsService = new MoveWaggonsService(_model, _findWaggonsRegExService, _parseAndAddFloatValue);
 
-            _savegameService = new SavegameService(_model, _backupService, _reformatService, _removeWaggonsService, _moveObjectsService, _moveTracksService, _moveWaggonsService);            
+            _savegameService = new SavegameService(_model, _backupService, _removeWaggonsService, _moveObjectsService, _moveTracksService, _moveWaggonsService);            
         }
 
         public string FileName
