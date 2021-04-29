@@ -48,7 +48,7 @@ namespace RollingLineSavegameFix.Services
                     var z = _parseAndAddFloatValue.For(match.Groups[4].Value, _model.MoveZAxisValue);
                     var trailingValue = match.Groups[5].Value;
 
-                    objects[i] = $"{leadingValue}{x}_{y}_{z}{trailingValue}";
+                    objects[i] = objects[i].Replace(match.Value, $"{leadingValue}{x}_{y}_{z}{trailingValue}");
                 }
             }
 

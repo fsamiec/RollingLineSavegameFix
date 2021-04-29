@@ -43,7 +43,7 @@ namespace RollingLineSavegameFix.Tests.Services.Move
             string dummyRegex)
         {
             //Arrange            
-            var source = "ct_dynamic,1,16.73281_1.918186_60.32922,0_125.4218_0,43,36,42,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,";
+            var source = "ct_dynamic,1,1.2345_2.3456_3.4567,0_125.4218_0,43,36,42,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,";
             var expectedResult = "ct_dynamic,1,X_Y_Z,0_125.4218_0,43,36,42,0,0,0,0,0,0,0,0,0,0,0,-1,0,,1_0_-2_45_2.9_0_6_22_1_1_12,-1,0,4_0,kcc0:h0:s0:v49:lr50:hr20,,1,";
 
             model.FileContent.Returns(dummyContent);
@@ -52,9 +52,9 @@ namespace RollingLineSavegameFix.Tests.Services.Move
             regexServiceResponseModel.MatchingRegEx = dummyRegex;
             findTracksRegExService.MatchRegex(dummyContent).Returns(regexServiceResponseModel);
             
-            parseAndAddFloatValue.For("16.73281", Arg.Any<float>()).Returns("X");
-            parseAndAddFloatValue.For("1.918186", Arg.Any<float>()).Returns("Y");
-            parseAndAddFloatValue.For("60.32922", Arg.Any<float>()).Returns("Z");
+            parseAndAddFloatValue.For("1.2345", Arg.Any<float>()).Returns("X");
+            parseAndAddFloatValue.For("2.3456", Arg.Any<float>()).Returns("Y");
+            parseAndAddFloatValue.For("3.4567", Arg.Any<float>()).Returns("Z");
 
             //Act
             sut.Move();

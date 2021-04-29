@@ -14,7 +14,6 @@ namespace RollingLineSavegameFix.Tests.Services
         public void LoadSaveGame_FileCanBeReadWithoutError_ReturnsEmptyString(
             [Frozen] IMainModel model,
             [Frozen] IBackupService backupService,
-            [Frozen] IReformatService reformatService,
             [Frozen] IRemoveWaggonsService removeWaggonsService,
             [Frozen] IMoveObjectsService moveObjectsService,
             [Frozen] IMoveTracksService moveTracksService,
@@ -29,7 +28,7 @@ namespace RollingLineSavegameFix.Tests.Services
             var mockedFileContent = new MockFileData(fileContent);
             mockedFileSystem.AddFile(filePath, mockedFileContent) ;
             model.FileName.Returns(filePath);            
-            var sut = new SavegameService(model, backupService, reformatService, removeWaggonsService, moveObjectsService, moveTracksService, moveWaggonsService, mockedFileSystem);            
+            var sut = new SavegameService(model, backupService, removeWaggonsService, moveObjectsService, moveTracksService, moveWaggonsService, mockedFileSystem);            
 
             //Act
             var result = sut.LoadSavegame();
@@ -38,7 +37,6 @@ namespace RollingLineSavegameFix.Tests.Services
             model.FileContent.Should().Be(fileContent);
             
             backupService.ReceivedCalls().Should().BeEmpty();
-            reformatService.ReceivedCalls().Should().BeEmpty();
             removeWaggonsService.ReceivedCalls().Should().BeEmpty();
         }
 
@@ -46,7 +44,6 @@ namespace RollingLineSavegameFix.Tests.Services
         public void LoadSaveGame_FileNotFound_ReturnsFileNotFoundErrorText(
             [Frozen] IMainModel model,
             [Frozen] IBackupService backupService,
-            [Frozen] IReformatService reformatService,
             [Frozen] IRemoveWaggonsService removeWaggonsService,            
             [Frozen] IMoveObjectsService moveObjectsService,
             [Frozen] IMoveTracksService moveTracksService,
@@ -58,7 +55,7 @@ namespace RollingLineSavegameFix.Tests.Services
 
             var mockedFileSystem = new MockFileSystem();                        
             model.FileName.Returns(filePath);            
-            var sut = new SavegameService(model, backupService, reformatService, removeWaggonsService, moveObjectsService, moveTracksService, moveWaggonsService, mockedFileSystem);
+            var sut = new SavegameService(model, backupService, removeWaggonsService, moveObjectsService, moveTracksService, moveWaggonsService, mockedFileSystem);
 
             //Act
             var result = sut.LoadSavegame();
@@ -67,7 +64,6 @@ namespace RollingLineSavegameFix.Tests.Services
             model.FileContent.Should().BeEmpty();
 
             backupService.ReceivedCalls().Should().BeEmpty();
-            reformatService.ReceivedCalls().Should().BeEmpty();
             removeWaggonsService.ReceivedCalls().Should().BeEmpty();
         }
     }

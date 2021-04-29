@@ -13,8 +13,8 @@ namespace RollingLineSavegameFix.Services
 
         public BackupService(IMainModel model, IFileSystem fileSystem)
         {
-            _model = model;
-            _fileSystem = fileSystem;
+            _model = model ?? throw new ArgumentNullException(nameof(model));
+            _fileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
         }
 
         public void WriteBackupFile()
@@ -23,7 +23,7 @@ namespace RollingLineSavegameFix.Services
             var filenameWithoutExtension = _fileSystem.Path.GetFileNameWithoutExtension(_model.FileName);
             var extension = _fileSystem.Path.GetExtension(_model.FileName);
 
-            var backupFileName = $"{directory}\\{filenameWithoutExtension}_{DateTime.Now:yyyyMMddHHmmss}{extension}";
+            var backupFileName = $"{directory}\\{filenameWithoutExtension}_backup_{DateTime.Now:yyyyMMddHHmmss}{extension}";
             _fileSystem.File.WriteAllText(backupFileName, _model.FileContent);                        
         }
     }   

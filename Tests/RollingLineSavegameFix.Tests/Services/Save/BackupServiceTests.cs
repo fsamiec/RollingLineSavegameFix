@@ -31,7 +31,7 @@ namespace RollingLineSavegameFix.Tests.Services
 
             sut.WriteBackupFile();
 
-            var expectedPath = $"{directory}{fileName}_{DateTime.Now:yyyyMMddHHmmss}{fileExtension}";
+            var expectedPath = $"{directory}{fileName}_backup_{DateTime.Now:yyyyMMddHHmmss}{fileExtension}";
 
             mockedFileSystem.FileExists(expectedPath).Should().BeTrue();
         }
