@@ -14,5 +14,5 @@ You'll need [.NET 5 Desktop Runtime](https://dotnet.microsoft.com/download/dotne
 # Contributors
 - caspa (thats me)
 - m0ne
-- erbs0r
-- Deekay
+- @christianerbsmehl
+- @dklinger
